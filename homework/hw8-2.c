@@ -23,11 +23,12 @@ int godown(int n)
 int main()
 {
   clock_t start,end;
-  for(int n=5;n<=35;n++)
+  for(int i=1;i<=3;i++)
   {
+    int n=35;
     start=clock();
-    printf("n=%d\t%d\t",n,godown(n));
+    printf("n=%d\t%d",n,godown(n));
     end=clock();
-    printf("%dms\n",end-start);
+    printf("\t%dms\n",end-start);
   }
 }
