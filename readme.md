@@ -1,3 +1,3 @@
-I am a C learner from THUEE.
+I am a C learner.
 hello~
 
