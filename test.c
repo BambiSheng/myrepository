@@ -1,18 +1,30 @@
-#include<stdio.h>
-#include<math.h>
-void swap(int* p1,int* p2)
-{
-  int *p=p1;
-  p1=p2;
-  p2=p1;
+#include <stdio.h>
+void fun(int a[], int n, int flag)
+{ int t,i,j,k;
+  for(i=0;i<n-1;i++)
+  {
+    k=i;
+    for(j=i+1;j<n;j++)
+    if(flag?a[k]>a[j]:a[k]<a[j])
+    k=j;
+    if(k!=i)
+    {
+      t=a[k];
+      a[k]=a[i];
+      a[i]=t;
+    }
+  }
 }
-
-
 int main()
 {
-  int a=1,b=2;
-  int *p1=&a,*p2=&b;
-  swap(p1,p2);
-  printf("%d %d",*p1,*p2);
-  return 0;
+  int c[10]={8,6,7,10,9,3,5,2,4,1};
+  fun(c,5,0);
+  fun(c+5,5,1);
+  for(int i=0;i<10;i++)
+  {
+    printf("%d,",c[i]);
+  }
 }
+
+
+//10,9,8,7,6,1,2,3,4,5,
