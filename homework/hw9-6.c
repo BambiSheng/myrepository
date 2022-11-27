@@ -1,4 +1,4 @@
-//x=72
+//X=88
 #include<stdio.h>
 int main()
 {
@@ -16,7 +16,7 @@ int main()
   int d=(12-s%11)%11;
   if(d==10)
   {
-    d=72;
+    d=40;
   }
   if(num[17]==d)
   {
