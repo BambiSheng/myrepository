@@ -1,30 +1,10 @@
-#include <stdio.h>
-void fun(int a[], int n, int flag)
-{ int t,i,j,k;
-  for(i=0;i<n-1;i++)
-  {
-    k=i;
-    for(j=i+1;j<n;j++)
-    if(flag?a[k]>a[j]:a[k]<a[j])
-    k=j;
-    if(k!=i)
-    {
-      t=a[k];
-      a[k]=a[i];
-      a[i]=t;
-    }
-  }
+#include<stdio.h>
+#include<malloc.h>
+#include<string.h>
+int main(int argc,char* argv[]){
+  char **p;
+  for(p=argv;argc--;p++)
+  printf("%c%s",**p,*p);
+  return 0;
 }
-int main()
-{
-  int c[10]={8,6,7,10,9,3,5,2,4,1};
-  fun(c,5,0);
-  fun(c+5,5,1);
-  for(int i=0;i<10;i++)
-  {
-    printf("%d,",c[i]);
-  }
-}
-
-
-//10,9,8,7,6,1,2,3,4,5,
+//FFINALEEXAM

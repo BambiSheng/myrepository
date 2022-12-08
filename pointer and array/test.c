@@ -1,7 +1,10 @@
 #include<stdio.h>
-int main()
-{
-  float f = 3.14;
-int * p = (int *) &f;  // generally a bad idea!
-printf("%d\n", *p);
+#include<malloc.h>
+#include<string.h>
+int main(int argc,char* argv[]){
+  char **p;
+  for(p=argv;argc--;p++)
+  printf("%c%s",**p,*p);
+  return 0;
 }
+//ttestFFINALEEXAM
