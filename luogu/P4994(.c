@@ -5,14 +5,15 @@ int main()
   long long M,n;
   long long mod1=0,mod2=0;
   scanf("%lld",&M);
-  for(n=1;mod1!=0||mod2!=1;n++)
-  {
-    n3=n1+n2;
+  n=1;
+  while(1){
+    if(n1==0&&n2==1){
+      break;
+    }
+    n3=(n1+n2)%M;
     n1=n2;
     n2=n3;
-    mod1=n1%M;
-    mod2=n2%M;
+    n++;
   }
   printf("%lld",n);
-  return 0;
 }
