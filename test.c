@@ -1,58 +1,40 @@
-#include<stdio.h>
-#include<string.h>
-#include<malloc.h>
-void printstr(char*str){
-  char* str1=(char*)malloc(strlen(str));
-  int j=0;
-  for(int i=0;i<strlen(str);i++){
-    if(*(str+i)!='.'){
-    *(str1+j)=*(str+i);
-    j++;
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node 
+{
+    int data;
+    struct Node *next;
+};
+
+struct Node *head; 
+
+void insert(int data) 
+{
+    struct Node *temp = (struct Node*)malloc(sizeof(struct Node));
+    temp->data = data;
+    temp->next = head;
+    head = temp;
+}
+
+void print() 
+{
+    struct Node *temp = head;
+    while (temp != NULL) 
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
     }
-    
-  }
-  *(str1+j)=0;
-  printf("%s",str1);
-  free(str1);
+    printf("\n");
 }
-void g(char*str ,int start,int end){
-  char*str1=(char*)malloc(-start+end);
-  for(int i=0;i<(-start+end-1);i++){
-    *(str1+i)=*(str+end-i-1);
-  }
-  for(int i=0;i<(-start+end-1);i++){
-    *(str+start+1+i)=*(str1+i);
-  }
-  *(str+start)='.';
-  *(str+end)='.';
-  free(str1);
-}
-void f(char*str){
-  int start,end;
-  do{
-    start=-1;
-    end=-1;
-    for(int i=0;i<strlen(str);i++){
-      if(*(str+i) == '('){
-        for(int j=1;j<strlen(str)-i;j++){
-          if(*(str+i+j)=='(')
-          break;
-          if(*(str+i+j)==')'){
-            start=i;
-            end=i+j;
-            g(str,start,end);
-            break;
-          }
-        }
-      }
-    }
-  }while(start!=-1||end!=-1);
-}
-int main(){
-  char* str=(char *)malloc(99);
-  gets(str);
-  f(str);
-  printstr(str);
-  free(str);
-  return 0;
+
+int main() 
+{
+    head = NULL; 
+    insert(2);
+    insert(4);
+    insert(6);
+    insert(5); 
+    print();
+    return 0;
 }
